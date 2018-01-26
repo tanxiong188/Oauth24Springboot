@@ -1,21 +1,20 @@
-<!doctype html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <title>Demo</title>
-    <meta name="description" content=""/>
-    <meta name="viewport" content="width=device-width"/>
-    <base href="/"/>
-    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
-    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
-    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
+
 <body>
-    <h1>用户登录</h1>
-    <form>
-        <input name="username">
-        <input name="password">
-    </form>
+
+    <div>
+        <form th:action="@{/login}" method="post">
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+            <input type="text" name="username" id="username" value="user" placeholder="账号" /><br/>
+            <input type="password" name="password" id="password" value="123456" placeholder="密码" /><br/>
+            <button type="submit">登录</button>
+        </form>
+    </div>
+
 </body>
+
 </html>
