@@ -9,9 +9,9 @@ public class ProfileController {
     @GetMapping("/api/profile")
     public Profile get() {
     	Profile p = new Profile();
-    	p.setId("9527");
-    	p.setName("rensanning");
-    	p.setEmail("rensanning@gmail.com");
+    	p.setId("10000");
+    	p.setName("bestaone");
+    	p.setEmail("117919482@qq.com");
         return p;
     }
 
