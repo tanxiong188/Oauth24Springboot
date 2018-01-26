@@ -76,25 +76,32 @@ spring:
 ## 截图
 
 - 测试客户端首页
-![image](https://github.com/bestaone/Oauth24Springboot/blob/master/doc/client_index.png)
+    ![image](https://github.com/bestaone/Oauth24Springboot/blob/master/doc/client_index.png)
+<br>
 
 - 测试客户端登录
-![image](https://github.com/bestaone/Oauth24Springboot/blob/master/doc/client_login.png)
+    ![image](https://github.com/bestaone/Oauth24Springboot/blob/master/doc/client_login.png)
+<br>
 
 - 测试客户端登录后授权
-![image](https://github.com/bestaone/Oauth24Springboot/blob/master/doc/approval.png)
+    ![image](https://github.com/bestaone/Oauth24Springboot/blob/master/doc/approval.png)
+<br>
 
 - 测试客户端登录成功
-![image](https://github.com/bestaone/Oauth24Springboot/blob/master/doc/client_login_success.png)
+    ![image](https://github.com/bestaone/Oauth24Springboot/blob/master/doc/client_login_success.png)
+<br>
 
 - password认证协议
-![image](https://github.com/bestaone/Oauth24Springboot/blob/master/doc/password_grant_type.png)
+    ![image](https://github.com/bestaone/Oauth24Springboot/blob/master/doc/password_grant_type.png)
+<br>
 
 - client_credentials认证协议
-![image](https://github.com/bestaone/Oauth24Springboot/blob/master/doc/client_credentials_grant_type.png)
+    ![image](https://github.com/bestaone/Oauth24Springboot/blob/master/doc/client_credentials_grant_type.png)
+<br>
 
 - 使用token访问api
-![image](https://github.com/bestaone/Oauth24Springboot/blob/master/doc/test_api.png)
+    ![image](https://github.com/bestaone/Oauth24Springboot/blob/master/doc/test_api.png)
+<br>
 
 
 ## 问题
