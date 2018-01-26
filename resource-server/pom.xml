@@ -3,8 +3,8 @@
     
 	<modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.bestaone.springboot.oauth2.authserver</groupId>
-    <artifactId>auth-server</artifactId>
+    <groupId>com.bestaone.springboot.oauth2.resourceserver</groupId>
+    <artifactId>resource-server</artifactId>
     <packaging>jar</packaging>
     <version>1.0.0-SNAPSHOT</version>
 	
@@ -32,11 +32,6 @@
 		<dependency>
 			<groupId>org.springframework.security.oauth</groupId>
 			<artifactId>spring-security-oauth2</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 
 		<dependency>

@@ -1,4 +1,4 @@
-package com.bestaone.springboot.oauth2.authserver.controller;
+package com.bestaone.springboot.oauth2.resourceserver.controller;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextImpl;

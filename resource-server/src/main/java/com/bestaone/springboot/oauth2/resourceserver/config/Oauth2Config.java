@@ -1,4 +1,4 @@
-package com.bestaone.springboot.oauth2.authserver.config;
+package com.bestaone.springboot.oauth2.resourceserver.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -12,7 +12,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.oauth2.config.annotation.builders.ClientDetailsServiceBuilder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
@@ -72,10 +71,10 @@ public class Oauth2Config {
         public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
             clients.jdbc(dataSource()); // oauth_client_details
 //            clients.inMemory()
-//                .withClient(OAUTH_CLIENT_ID)
-//                .secret(OAUTH_CLIENT_SECRET)
+//                .withClient("client")
+//                .secret("123456")
 //                .resourceIds(RESOURCE_ID)
-//                .scopes(SCOPES)
+//                .scopes("read","write")
 //                .authorities("ROLE_USER")
 //                .authorizedGrantTypes("authorization_code", "client_credentials", "password", "refresh_token")
 //                .redirectUris("http://default-oauth-callback.com")

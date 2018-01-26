@@ -1,4 +1,4 @@
-package com.bestaone.springboot.oauth2.authserver;
+package com.bestaone.springboot.oauth2.resourceserver;
 
 import org.springframework.security.crypto.codec.Base64;
 

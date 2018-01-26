@@ -1,9 +1,6 @@
-package com.bestaone.springboot.oauth2.authserver.controller;
+package com.bestaone.springboot.oauth2.resourceserver.controller;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController

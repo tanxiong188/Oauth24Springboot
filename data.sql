@@ -91,7 +91,7 @@ COMMENT ON COLUMN "public"."oauth_client_details"."autoapprove" IS '用户是否
 -- ----------------------------
 -- Records of oauth_client_details
 -- ----------------------------
-INSERT INTO "public"."oauth_client_details" VALUES ('client', NULL, '123456', 'read,write', 'authorization_code,client_credentials,password,refresh_token', 'http://default-oauth-callback.com', 'ROLE_USER', 1800, 86400, NULL, 'false');
+INSERT INTO "public"."oauth_client_details" VALUES ('client', NULL, '123456', 'read,write', 'authorization_code,client_credentials,password,refresh_token', 'http://localhost:8080', 'ROLE_USER', 1800, 86400, NULL, 'false');
 
 -- ----------------------------
 -- Table structure for oauth_client_token
@@ -141,3 +141,15 @@ COMMENT ON COLUMN "public"."oauth_refresh_token"."authentication" IS 'OAuth2Auth
 -- Primary Key structure for table oauth_client_details
 -- ----------------------------
 ALTER TABLE "public"."oauth_client_details" ADD CONSTRAINT "oauth_client_details_pkey" PRIMARY KEY ("client_id");
+
+CREATE TABLE account
+(
+  id serial NOT NULL,
+  user_name character varying(50),
+  email character varying(255),
+  password character varying(512),
+  role_string character varying(50),
+  CONSTRAINT account_pkey PRIMARY KEY (id)
+);
+
+INSERT INTO account(user_name, email, password, role_string) VALUES ('user', 'user@sample.com', '123', 'ROLE_USER');
