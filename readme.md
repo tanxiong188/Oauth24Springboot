@@ -75,31 +75,31 @@ spring:
 
 ## 截图
 
-- 测试客户端首页
+- 测试客户端首页<br>
     ![image](https://github.com/bestaone/Oauth24Springboot/blob/master/doc/client_index.png)
 <br>
 
-- 测试客户端登录
+- 测试客户端登录<br>
     ![image](https://github.com/bestaone/Oauth24Springboot/blob/master/doc/client_login.png)
 <br>
 
-- 测试客户端登录后授权
+- 测试客户端登录后授权<br>
     ![image](https://github.com/bestaone/Oauth24Springboot/blob/master/doc/approval.png)
 <br>
 
-- 测试客户端登录成功
+- 测试客户端登录成功<br>
     ![image](https://github.com/bestaone/Oauth24Springboot/blob/master/doc/client_login_success.png)
 <br>
 
-- password认证协议
+- password认证协议<br>
     ![image](https://github.com/bestaone/Oauth24Springboot/blob/master/doc/password_grant_type.png)
 <br>
 
-- client_credentials认证协议
+- client_credentials认证协议<br>
     ![image](https://github.com/bestaone/Oauth24Springboot/blob/master/doc/client_credentials_grant_type.png)
 <br>
 
-- 使用token访问api
+- 使用token访问api<br>
     ![image](https://github.com/bestaone/Oauth24Springboot/blob/master/doc/test_api.png)
 <br>
 
