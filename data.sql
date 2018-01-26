@@ -12,7 +12,7 @@
  Target Server Version : 100001
  File Encoding         : 65001
 
- Date: 24/01/2018 16:33:14
+ Date: 26/01/2018 17:26:41
 */
 
 
@@ -141,15 +141,3 @@ COMMENT ON COLUMN "public"."oauth_refresh_token"."authentication" IS 'OAuth2Auth
 -- Primary Key structure for table oauth_client_details
 -- ----------------------------
 ALTER TABLE "public"."oauth_client_details" ADD CONSTRAINT "oauth_client_details_pkey" PRIMARY KEY ("client_id");
-
-CREATE TABLE account
-(
-  id serial NOT NULL,
-  user_name character varying(50),
-  email character varying(255),
-  password character varying(512),
-  role_string character varying(50),
-  CONSTRAINT account_pkey PRIMARY KEY (id)
-);
-
-INSERT INTO account(user_name, email, password, role_string) VALUES ('user', 'user@sample.com', '123', 'ROLE_USER');
