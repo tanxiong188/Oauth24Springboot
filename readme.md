@@ -75,19 +75,19 @@ spring:
 
 ## 截图
 
-- 测试客户端首页<br>
+- 客户端首页<br>
     ![image](https://github.com/bestaone/Oauth24Springboot/blob/master/doc/client_index.png)
 <br>
 
-- 测试客户端登录<br>
+- 跳转到认证服务器登录<br>
     ![image](https://github.com/bestaone/Oauth24Springboot/blob/master/doc/client_login.png)
 <br>
 
-- 测试客户端登录后授权<br>
+- 登录验证后询问授权<br>
     ![image](https://github.com/bestaone/Oauth24Springboot/blob/master/doc/approval.png)
 <br>
 
-- 测试客户端登录成功<br>
+- 认证服务器认证授权成功后重定向到客户端<br>
     ![image](https://github.com/bestaone/Oauth24Springboot/blob/master/doc/client_login_success.png)
 <br>
 
