@@ -1,7 +1,7 @@
 
-# oauth2 客户端和服务端实例
+# Oauth2 客户端、认证服务、资源服务整合实例
 
-## 支持协议
+## 集成协议
 
 1. password
 1. client_credentials
