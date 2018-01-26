@@ -22,9 +22,41 @@ spring:
 - 导出数据，使用脚本文件 Oauth24Springboot/data.sql
 - 启动程序 com.bestaone.springboot.oauth2.authserver.Application
 
+## 模块介绍
+
+- clien模块
+验证authorization_code的客户端代码演示
+
+- auth-server 
+提供认证的功能
+
+- resource-server
+资源服务，需要携带授权凭证才可访问
+
 ## 验证
 
-### authorization_code 认证流程
+### authorization_code 认证流程（使用client模块）
+
+- 将三个项目都启动
+- 访问 http://localhost:8080
+- 首页是client项目的，登录认证是在auth server，登录后获取的Profile数据是从resource server中获取的
+> 注意：如果授权环节不出现，可以清楚下收据库数据
+
+### password 认证流程
+
+- post 访问 http://localhost:8081/oauth/token?username=user&password=123&grant_type=password&client_id=client&client_secret=123456
+- 正常访问后返回json token
+- 验证：使用 http://localhost:8082/api/post，在请求头中添加凭证 Authorization Bearer ----------
+- 无权限拦截的测试url http://localhost:8081/test/a
+
+### client_credentials 认证流程
+
+- post 访问 http://localhost:8081/oauth/token?grant_type=client_credentials&client_id=client&client_secret=123456&scope=read
+- 正常访问后返回json token
+- 验证：使用 http://localhost:8082/api/post，在请求头中添加凭证 Authorization Bearer ----------
+- 无权限拦截的测试url http://localhost:8082/test/a
+
+### authorization_code 认证流程(废弃，暂时不删除，有可能有参考价值)
 
 - 使用测试类（com.bestaone.springboot.oauth2.authserver.Test）生成访问token的凭证 A
 - 浏览器访问 http://localhost:8081/oauth/authorize?client_id=client&scope=read&response_type=code&state=rensanning&redirect_uri=http://localhost:8081
@@ -35,25 +67,40 @@ spring:
 - 验证。访问 http://localhost:8081/api/get，在请求头中添加凭证Authorization Bearer ----------（或正在url中添加参数access_token）
 - 无权限拦截的测试url http://localhost:8081/test/a
 
-### password 认证流程
-
-- post 访问 http://localhost:8081/oauth/token?username=user&password=123&grant_type=password&client_id=client&client_secret=123456
-- 正常访问后返回json token
-- 验证：使用 http://localhost:8081/api/get，在请求头中添加凭证 Authorization Bearer ----------
-- 无权限拦截的测试url http://localhost:8081/test/a
-
-### client_credentials 认证流程
-
-- post 访问 http://localhost:8081/oauth/token?grant_type=client_credentials&client_id=client&client_secret=123456&scope=read
-- 正常访问后返回json token
-- 验证：使用 http://localhost:8081/api/get，在请求头中添加凭证 Authorization Bearer ----------
-- 无权限拦截的测试url http://localhost:8081/test/a
-
 ### 验证scope
 
 - post 访问 http://localhost:8081/oauth/token?username=user&password=123&grant_type=password&client_id=client&client_secret=123456&scope=read
 - 返回的json token的权限范围是read
 - 访问 http://localhost:8081/api/post，被拒绝（这个接口设置了需要write权限）
+
+## 截图
+
+- 测试客户端首页
+![image](https://github.com/bestaone/Oauth24Springboot/doc/client_index.png)
+
+- 测试客户端登录
+![image](https://github.com/bestaone/Oauth24Springboot/doc/client_login.png)
+
+- 测试客户端登录后授权
+![image](https://github.com/bestaone/Oauth24Springboot/doc/approval.png)
+
+- 测试客户端登录成功
+![image](https://github.com/bestaone/Oauth24Springboot/doc/client_login_success.png)
+
+- password认证协议
+![image](https://github.com/bestaone/Oauth24Springboot/doc/password_grant_type.png)
+
+- client_credentials认证协议
+![image](https://github.com/bestaone/Oauth24Springboot/doc/client_credentials_grant_type.png)
+
+- 使用token访问api
+![image](https://github.com/bestaone/Oauth24Springboot/doc/test_api.png)
+
+
+## 问题
+
+- 我将spring-boot升级到了2.0.0.M3版本，当升级到2.0.0.M7版本时出现问题，目前暂时没有排查
+- 将认证服务和资源服务合并在一起的时候，验证authorization_code功能时，登录时报错“不支持 POST”,初步定为是 auth server 的SecurityConfig的HttpSecurity http未设置好
 
 ## 参考
 
