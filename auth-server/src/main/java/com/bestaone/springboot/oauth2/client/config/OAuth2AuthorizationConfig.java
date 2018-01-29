@@ -15,9 +15,11 @@ import org.springframework.security.oauth2.provider.approval.ApprovalStore;
 import org.springframework.security.oauth2.provider.approval.JdbcApprovalStore;
 import org.springframework.security.oauth2.provider.code.AuthorizationCodeServices;
 import org.springframework.security.oauth2.provider.code.JdbcAuthorizationCodeServices;
+import org.springframework.security.oauth2.provider.endpoint.AuthorizationEndpoint;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JdbcTokenStore;
 
+import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
 
 @Configuration
@@ -31,14 +33,14 @@ public class OAuth2AuthorizationConfig extends AuthorizationServerConfigurerAdap
     private AuthenticationManager authenticationManager;
 
     //自定义授权页面
-//        @Autowired
-//        private AuthorizationEndpoint authorizationEndpoint;
-//
-//        @PostConstruct
-//        public void init() {
-//            authorizationEndpoint.setUserApprovalPage("forward:/oauth/my_approval_page");
-//            authorizationEndpoint.setErrorPage("forward:/oauth/my_error_page");
-//        }
+    @Autowired
+    private AuthorizationEndpoint authorizationEndpoint;
+
+    @PostConstruct
+    public void init() {
+        authorizationEndpoint.setUserApprovalPage("forward:/oauth/my_approval_page");
+        authorizationEndpoint.setErrorPage("forward:/oauth/my_error_page");
+    }
 
     @Bean
     public DataSource dataSource() {
