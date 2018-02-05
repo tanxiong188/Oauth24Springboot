@@ -1,6 +1,8 @@
 package com.bestaone.springboot.oauth2.client;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.codec.Base64;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.io.UnsupportedEncodingException;
 

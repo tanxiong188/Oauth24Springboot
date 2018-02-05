@@ -91,7 +91,7 @@ COMMENT ON COLUMN "public"."oauth_client_details"."autoapprove" IS '用户是否
 -- ----------------------------
 -- Records of oauth_client_details
 -- ----------------------------
-INSERT INTO "public"."oauth_client_details" VALUES ('client', NULL, '123456', 'read,write', 'authorization_code,client_credentials,password,refresh_token', 'http://localhost:8080', 'ROLE_USER', 1800, 86400, NULL, 'false');
+INSERT INTO "public"."oauth_client_details" VALUES ('client', NULL, '$2a$10$1N/.LvTJuYpvxDzoJ1KdvuPDdV/kDSQE9Cxm9BzB1PreyzK6gmFRe', 'read,write', 'authorization_code,client_credentials,password,refresh_token', 'http://localhost:8080', 'ROLE_USER', 1800, 86400, NULL, 'false');
 
 -- ----------------------------
 -- Table structure for oauth_client_token

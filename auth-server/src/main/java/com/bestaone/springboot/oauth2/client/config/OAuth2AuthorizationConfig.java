@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
@@ -56,17 +57,23 @@ public class OAuth2AuthorizationConfig extends AuthorizationServerConfigurerAdap
     public ApprovalStore approvalStore() {
         return new JdbcApprovalStore(dataSource());
     }
+
     @Bean
     protected AuthorizationCodeServices authorizationCodeServices() {
         return new JdbcAuthorizationCodeServices(dataSource());
     }
+
     @Bean
     public TokenStore tokenStore() {
         return new JdbcTokenStore(dataSource());
     }
 
+//    @Autowired
+//    public UserDetailsService userDetailsService;
+
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
+//        clients.withClientDetails(userDetailsService);
         clients.jdbc(dataSource()); // oauth_client_details
 //            clients.inMemory()
 //                .withClient("client")

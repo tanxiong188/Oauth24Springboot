@@ -58,7 +58,7 @@ spring:
 ### authorization_code 认证流程(废弃，暂时不删除，有可能有参考价值)
 
 - 使用测试类（com.bestaone.springboot.oauth2.authserver.Test）生成访问token的凭证 A
-- 浏览器访问 http://localhost:8081/oauth/authorize?client_id=client&scope=read&response_type=code&state=rensanning&redirect_uri=http://localhost:8080
+- 浏览器访问 http://localhost:8081/oauth/authorize?client_id=client&scope=read&response_type=code&redirect_uri=http://localhost:8080
 提示输入用户名密码：user 123
 - 浏览器提示选择授权与否，选择授权。此时浏览器跳转后会添加code=yB9rWE，拿到code
 - 通过code获取token，此时需要code和凭证A。访问 http://localhost:8081/oauth/token?grant_type=authorization_code&redirect_uri=http://localhost:8080&code=yB9rWE，在请求头中添加第一步获取的凭证 A
@@ -105,7 +105,7 @@ spring:
 
 ## 问题
 
-- 我将spring-boot升级到了2.0.0.M3版本，当升级到2.0.0.M7版本时出现问题，目前暂时没有排查
+- 我将spring-boot升级到了2.0.0.M3版本，当升级到2.0.0.M7版本时出现问题，目前暂时没有排查 (已修复)
 - 将认证服务和资源服务合并在一起的时候，验证authorization_code功能时，登录时报错“不支持 POST”,初步定为是 auth server 的SecurityConfig的HttpSecurity http未设置好
 
 ## 参考

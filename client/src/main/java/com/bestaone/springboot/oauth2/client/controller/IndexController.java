@@ -45,7 +45,7 @@ public class IndexController {
 	public void signin(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		logger.debug("signin");
 	    logger.info("session id:{}", request.getSession().getId());
-	    
+
 		OAuth20Service service = new ServiceBuilder(CLIENT_ID)
 				.apiSecret(CLIENT_SECRET)
 				.scope(SCOPE)
