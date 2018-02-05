@@ -68,12 +68,8 @@ public class OAuth2AuthorizationConfig extends AuthorizationServerConfigurerAdap
         return new JdbcTokenStore(dataSource());
     }
 
-//    @Autowired
-//    public UserDetailsService userDetailsService;
-
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-//        clients.withClientDetails(userDetailsService);
         clients.jdbc(dataSource()); // oauth_client_details
 //            clients.inMemory()
 //                .withClient("client")

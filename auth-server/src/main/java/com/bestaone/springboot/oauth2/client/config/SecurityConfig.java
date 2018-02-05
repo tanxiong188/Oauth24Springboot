@@ -1,5 +1,7 @@
 package com.bestaone.springboot.oauth2.client.config;
 
+import com.bestaone.springboot.oauth2.client.config.validatecode.ValidateCodeSecurityConfig;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -14,6 +16,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Autowired
+    private ValidateCodeSecurityConfig validateCodeSecurityConfig;
 
     @Bean
     public PasswordEncoder passwordEncoder(){
@@ -41,22 +46,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.userDetailsService(userDetailsService());
         http.csrf().disable();
-        http
+
+//        http .apply(smsCodeAuthenticationSecurityConfig); //开启短信登陆功能
+        http .apply(validateCodeSecurityConfig);//开启验证码功能
+
+        http.formLogin()
+                .loginPage("/signin").loginProcessingUrl("/signin/form").defaultSuccessUrl("/index")
+                .and()
+                .logout().logoutUrl("/signout").logoutSuccessUrl("/signin")
+                .and()
                 .authorizeRequests()
-                .antMatchers("/").permitAll()
+                .antMatchers("/signin", "/mobile/signin/form","/code/image","/code/mobile").permitAll()
                 .antMatchers("/oauth/**").permitAll()
                 .antMatchers("/user/**").hasRole("USER")
-                .and()
-                .formLogin().loginPage("/login").defaultSuccessUrl("/user")
-                .and()
-                .logout().logoutUrl("/logout").logoutSuccessUrl("/login");
+                .anyRequest().authenticated();
 
-//            http.csrf().disable();
-//            http.requestMatchers()
-//                    .antMatchers("/oauth/**")
-//                    .and().authorizeRequests()
-//                    .antMatchers("/oauth/**").authenticated()
-//                    .and().httpBasic();
     }
 
 }
