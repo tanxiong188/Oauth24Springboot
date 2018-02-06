@@ -12,7 +12,7 @@
  Target Server Version : 100001
  File Encoding         : 65001
 
- Date: 26/01/2018 17:26:41
+ Date: 06/02/2018 15:48:38
 */
 
 
@@ -104,7 +104,6 @@ CREATE TABLE "public"."oauth_client_token" (
   "user_name" varchar(256) COLLATE "pg_catalog"."default" DEFAULT NULL,
   "client_id" varchar(256) COLLATE "pg_catalog"."default" DEFAULT NULL
 )
-
 ;
 COMMENT ON COLUMN "public"."oauth_client_token"."token_id" IS 'MD5加密的access_token值';
 COMMENT ON COLUMN "public"."oauth_client_token"."token" IS 'OAuth2AccessToken.java对象序列化后的二进制数据';

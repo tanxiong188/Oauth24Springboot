@@ -2,20 +2,32 @@ package com.bestaone.springboot.oauth2.resource.controller;
 
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextImpl;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
+import java.security.Principal;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 @PreAuthorize("isAuthenticated()")
 @RestController
 public class ApiController {
 
+    @GetMapping("/api/me")
+    public Principal me(@AuthenticationPrincipal Principal principal) {
+        return principal;
+    }
+
     @GetMapping("/api/get")
-    public String get() {
-        return "Hello World!";
+    public Map<String,Object> get() {
+        Map<String,Object> map = new HashMap<>();
+        map.put("time", new Date());
+        return map;
     }
 
     @PostMapping("/api/post")
@@ -33,6 +45,12 @@ public class ApiController {
             }
         }
         return "none";
+    }
+
+    @GetMapping("/api/error")
+    public Principal error(@AuthenticationPrincipal Principal principal) {
+        int i = 1/0;
+        return principal;
     }
 
 }
