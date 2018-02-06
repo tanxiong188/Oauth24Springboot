@@ -117,12 +117,13 @@ public class IndexController {
 		logger.info("body:{}", resourceResponse.getBody());
 
 		JSONObject obj = new JSONObject(resourceResponse.getBody());
-
 		logger.info("json:{}", obj.toString());
 
-		String id = obj.getString("id");
-		String name = obj.getString("name");
-		String email = obj.getString("email");
+		JSONObject data = obj.getJSONObject("data");
+
+		String id = data.getString("id");
+		String name = data.getString("name");
+		String email = data.getString("email");
 
 		model.addAttribute("id", id);
 		model.addAttribute("name", name);
