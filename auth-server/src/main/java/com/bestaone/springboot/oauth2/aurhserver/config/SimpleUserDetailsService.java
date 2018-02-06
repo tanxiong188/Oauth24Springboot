@@ -2,11 +2,11 @@ package com.bestaone.springboot.oauth2.aurhserver.config;
 
 import com.bestaone.springboot.oauth2.aurhserver.domain.Authority;
 import com.bestaone.springboot.oauth2.aurhserver.domain.Role;
-import com.bestaone.springboot.oauth2.aurhserver.service.*;
+import com.bestaone.springboot.oauth2.aurhserver.service.AuthorityService;
+import com.bestaone.springboot.oauth2.aurhserver.service.RoleService;
+import com.bestaone.springboot.oauth2.aurhserver.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -21,12 +21,6 @@ import java.util.Set;
 
 @Service
 public class SimpleUserDetailsService implements UserDetailsService {
-
-//    @Autowired
-//    private PasswordEncoder passwordEncoder;
-//
-//    @Autowired
-//    private AccountService accountService;
 
     @Autowired
     private PasswordEncoder passwordEncoder;

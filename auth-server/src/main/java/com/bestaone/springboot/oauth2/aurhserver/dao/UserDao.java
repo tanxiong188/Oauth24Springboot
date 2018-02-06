@@ -7,10 +7,10 @@ import org.apache.ibatis.annotations.Select;
 @Mapper
 public interface UserDao{
 
-    @Select("SELECT id, name, username, password, tel_no FROM userx where username=#{username}")
+    @Select("SELECT id, name, username, password, tel_no FROM sys_user where username=#{username}")
     User findByUsername(String username);
 
-    @Select("SELECT id, name, username, password, tel_no FROM userx where tel_no=#{telNo}")
+    @Select("SELECT id, name, username, password, tel_no FROM sys_user where tel_no=#{telNo}")
     User findByTelNo(String telNo);
 
 }

@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-//改进使用只验证一次的过滤器 extends OncePerRequestFilter implements InitializingBean
+//改进,使用只验证一次的过滤器 extends OncePerRequestFilter implements InitializingBean
 public class CaptchaAuthenticationFilter extends AbstractAuthenticationProcessingFilter {
 
     private static final String FORM_CAPTCHA_KEY = "yzm";

@@ -19,13 +19,14 @@ public class SmsCodeAuthenticationFilter extends AbstractAuthenticationProcessin
 
     private boolean postOnly = true;
 
+    //defaultFilterProcessesUrl为要拦截的url
     public SmsCodeAuthenticationFilter(String defaultFilterProcessesUrl, String failureUrl) {
         super(new AntPathRequestMatcher(defaultFilterProcessesUrl, "POST"));
         setAuthenticationFailureHandler(new SimpleUrlAuthenticationFailureHandler(failureUrl));
     }
 
     @Override
-    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException, IOException, ServletException {
+    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
         if (postOnly && !request.getMethod().equals("POST")) {
             throw new AuthenticationServiceException("Authentication method not supported: " + request.getMethod());
         }

@@ -3,6 +3,7 @@ package com.bestaone.springboot.oauth2.aurhserver.config.smscode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+//模拟缓存
 public class Cache {
 
     private static Logger LOGGER = LoggerFactory.getLogger(Cache.class);

@@ -40,6 +40,7 @@ public class SmsCodeAuthenticationSecurityConfig extends SecurityConfigurerAdapt
         //设置自定义SmsCodeAuthenticationProvider的认证器userDetailsService
         SmsCodeAuthenticationProvider smsCodeAuthenticationProvider = new SmsCodeAuthenticationProvider();
         smsCodeAuthenticationProvider.setUserDetailsService(smsUserDetailsService());
+
         //在UsernamePasswordAuthenticationFilter过滤前执行
         http.authenticationProvider(smsCodeAuthenticationProvider)
                 .addFilterAfter(smsCodeAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);

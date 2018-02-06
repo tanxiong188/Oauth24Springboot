@@ -9,31 +9,31 @@ public class SmsCodeAuthenticationToken extends AbstractAuthenticationToken {
 
     private static final long serialVersionUID = 2383092775910246006L;
 
-    private final Object principal;
-    private Object credentials;
+    private final String mobile;
+    private String smsCode;
 
-    public SmsCodeAuthenticationToken(Object principal, Object credentials) {
+    public SmsCodeAuthenticationToken(String mobile, String smsCode) {
         super(null);
-        this.principal = principal;
-        this.credentials = credentials;
+        this.mobile = mobile;
+        this.smsCode = smsCode;
         setAuthenticated(false);
     }
 
-    public SmsCodeAuthenticationToken(Object principal, Object credentials, Collection<? extends GrantedAuthority> authorities) {
+    public SmsCodeAuthenticationToken(String mobile, String smsCode, Collection<? extends GrantedAuthority> authorities) {
         super(authorities);
-        this.principal = principal;
-        this.credentials = credentials;
+        this.mobile = mobile;
+        this.smsCode = smsCode;
         super.setAuthenticated(true);
     }
 
     @Override
     public Object getCredentials() {
-        return this.credentials;
+        return this.smsCode;
     }
 
     @Override
     public Object getPrincipal() {
-        return this.principal;
+        return this.mobile;
     }
 
     public void setAuthenticated(boolean isAuthenticated) throws IllegalArgumentException {
@@ -46,7 +46,7 @@ public class SmsCodeAuthenticationToken extends AbstractAuthenticationToken {
     @Override
     public void eraseCredentials() {
         super.eraseCredentials();
-        this.credentials = null;
+        this.smsCode = null;
     }
 
 }

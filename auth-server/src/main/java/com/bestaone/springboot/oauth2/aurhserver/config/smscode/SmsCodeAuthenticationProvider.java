@@ -2,6 +2,7 @@ package com.bestaone.springboot.oauth2.aurhserver.config.smscode;
 
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.InternalAuthenticationServiceException;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -26,8 +27,8 @@ public class SmsCodeAuthenticationProvider implements AuthenticationProvider {
         if (user == null) {
             throw new InternalAuthenticationServiceException("无法获取用户信息");
         }
-        //如果user不为空重新构建SmsCodeAuthenticationToken（已认证）
-        SmsCodeAuthenticationToken authenticationResult = new SmsCodeAuthenticationToken(user, authentication.getCredentials(), user.getAuthorities());
+        //重新构建UsernamePasswordAuthenticationToken（已认证）
+        UsernamePasswordAuthenticationToken authenticationResult = new UsernamePasswordAuthenticationToken(user, authentication.getCredentials(), user.getAuthorities());
         authenticationResult.setDetails(authenticationToken.getDetails());
         return authenticationResult;
     }

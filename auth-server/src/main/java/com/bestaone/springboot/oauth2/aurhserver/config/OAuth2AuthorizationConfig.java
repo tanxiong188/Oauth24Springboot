@@ -70,16 +70,6 @@ public class OAuth2AuthorizationConfig extends AuthorizationServerConfigurerAdap
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.jdbc(dataSource()); // oauth_client_details
-//            clients.inMemory()
-//                .withClient("client")
-//                .secret("123456")
-//                .resourceIds(RESOURCE_ID)
-//                .scopes("read","write")
-//                .authorities("ROLE_USER")
-//                .authorizedGrantTypes("authorization_code", "client_credentials", "password", "refresh_token")
-//                .redirectUris("http://localhost:8080")
-//                .accessTokenValiditySeconds(60*30) // 30min
-//                .refreshTokenValiditySeconds(60*60*24); // 24h
     }
 
     @Override

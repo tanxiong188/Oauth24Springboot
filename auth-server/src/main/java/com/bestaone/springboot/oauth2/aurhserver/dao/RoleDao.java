@@ -8,6 +8,6 @@ import java.util.List;
 @Mapper
 public interface RoleDao {
 
-    public List<Role> findByRoleId(Long userId);
+    List<Role> findByRoleId(Long userId);
 
 }
